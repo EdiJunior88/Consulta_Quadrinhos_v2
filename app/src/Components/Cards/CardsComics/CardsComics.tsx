@@ -1,10 +1,16 @@
 import { useState } from "react";
 import Modal from "react-modal";
+import { InterfaceCardsComics } from "../../Interface/Interface";
 
 Modal.setAppElement("#root");
 
-const CardsComics = (props) => {
-  const [modal, setModal] = useState(false);
+const CardsComics = ({
+  author,
+  name,
+  image,
+  description,
+}: InterfaceCardsComics) => {
+  const [modal, setModal] = useState<boolean>(false);
 
   function modalAberto() {
     setModal(true);
@@ -17,23 +23,20 @@ const CardsComics = (props) => {
   return (
     <div>
       <div>
-        <p>{props.nome}</p>
+        <p>{name}</p>
         <button onClick={modalAberto}>
-          <img src={props.imagem.path + ".jpg"} alt={props.nome} />
+          <img src={image?.path + ".jpg"} alt={name} />
         </button>
-        <Modal
-          isOpen={modal}
-          onRequestClose={modalFechado}
-          overlayClassName={styles2.overlayModal}>
+        <Modal isOpen={modal} onRequestClose={modalFechado}>
           <div>
             <button onClick={modalFechado}>X</button>
           </div>
           <div>
-            {props.descricao ? props.descricao : <div>🚫 Sem descrição</div>}
+            {description ? description : <div>🚫 Sem descrição</div>}
 
             <div>
               Autor(es)
-              <span>{props.autor}</span>
+              <span>{author}</span>
             </div>
           </div>
         </Modal>

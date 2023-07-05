@@ -15,3 +15,8 @@ export interface InterfaceComicsGet {
   limit: number;
   offset: number;
 }
+
+export interface InterfaceButton {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  name: string;
+}

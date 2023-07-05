@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import md5 from "md5";
-import CardsComics from "../../Components/Cards/CardsComics/CardsComics";
-import { InterfaceCardsComics } from "../../Components/Interface/Interface";
 import axios from "axios";
+import { InterfaceCardsComics } from "../../Components/Interface/Interface";
+import CardsComics from "../../Components/Cards/CardsComics/CardsComics";
 import Search from "../../Components/Search/Search";
+import Button from "../../Components/Button/Button";
 
 const Home = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -17,13 +18,18 @@ const Home = () => {
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
 
+  /* Evita Carregar a API sem ter alguma informação digitada no input */
   useEffect(() => {
     if (searchResult !== "") {
       apiComics();
     }
-  }, [searchResult, limit]);
+  }, [searchResult, limit, offset]);
 
-  function apiComics() {
+  /* Função para chamar a API através do input text */
+  /* O resultado digitado no input text fica armazenado no Hook resultadoPesquisa */
+  /* O Hook limite se refere ao máximo de solicitações por vez da API (100 solicitações por vez) */
+  /* O Hook offset reinicia a contagem do hook limite para não dar um erro de chamada da API caso ultrapasse o limite */
+  const apiComics = () => {
     axios
       .get(
         `${url}comics?titleStartsWith=${searchResult}&ts=${date}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}&orderBy=title`
@@ -35,7 +41,13 @@ const Home = () => {
       .catch((errorAPI) => {
         console.log(errorAPI);
       });
-  }
+  };
+
+  /* Acrescentando mais 30 novos resultados e chamando a API */
+  const moreComics = () => {
+    setLimit((currentLimit) => currentLimit + 30);
+    apiComics();
+  };
 
   return (
     <div>
@@ -45,6 +57,7 @@ const Home = () => {
             setSearchResult(searchResult);
           }}
         />
+
         {comics.map((comic) => {
           return (
             <CardsComics
@@ -57,6 +70,35 @@ const Home = () => {
             />
           );
         })}
+
+        {searchResult !== "" &&
+          (limit <= 90 ? (
+            <div>
+              <div>
+                <Button
+                  onClick={() => {
+                    setTimeout(() => {
+                      moreComics();
+                    }, 500);
+                  }}
+                  name='Mais Comics'
+                />
+              </div>
+            </div>
+          ) : (
+            <div>
+              <Button
+                onClick={() =>
+                  setTimeout(() => {
+                    setLimit((currentLimit) => currentLimit - 30),
+                      setOffset(offset + 100);
+                    moreComics();
+                  }, 500)
+                }
+                name='Mais Comics'
+              />
+            </div>
+          ))}
       </section>
     </div>
   );

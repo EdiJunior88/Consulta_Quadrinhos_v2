@@ -12,13 +12,13 @@ const CardsComics = ({
 }: InterfaceCardsComics) => {
   const [modal, setModal] = useState<boolean>(false);
 
-  function modalAberto() {
+  const modalAberto = () => {
     setModal(true);
-  }
+  };
 
-  function modalFechado() {
+  const modalFechado = () => {
     setModal(false);
-  }
+  };
 
   return (
     <div>

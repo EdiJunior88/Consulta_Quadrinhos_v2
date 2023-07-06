@@ -20,3 +20,8 @@ export interface InterfaceButton {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   name: string;
 }
+
+export interface InterfaceHeader {
+  name: string;
+  to: string;
+}

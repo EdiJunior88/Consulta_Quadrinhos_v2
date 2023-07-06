@@ -6,6 +6,7 @@ import CardsComics from "../../Components/Cards/CardsComics/CardsComics";
 import Search from "../../Components/Search/Search";
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
+import CssBaseline from '@mui/material/CssBaseline';
 
 const Home = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -51,7 +52,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <CssBaseline>
       <header>
         <Header name="Heroes" to="/heroes" />
       </header>
@@ -105,7 +106,7 @@ const Home = () => {
             </div>
           ))}
       </section>
-    </>
+    </CssBaseline>
   );
 };
 

@@ -12,7 +12,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: `
       body {
-        background: url(../../src/assets/background-red.webp) center center no-repeat fixed;
+        background: url('src/assets/background-red.webp') center center no-repeat fixed;
         background-size: cover;
       }
       input:focus {

@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
+import { InterfaceSearch } from "../Interface/Interface";
 
-const Search = ({ filter }: { filter: (searchText: string) => void }) => {
+const Search = ({ filter, custom }: InterfaceSearch) => {
   const [text, setText] = useState("");
 
   const inputKeyboard = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -18,9 +19,11 @@ const Search = ({ filter }: { filter: (searchText: string) => void }) => {
           borderRadius: 8,
           width: 400,
           height: 35,
-          fontSize: "1.4em",
+          fontSize: 22,
           paddingLeft: 10,
+          color: "#F21D55",
           fontFamily: "'Sofia Sans Condensed', 'sans-serif'",
+          ...custom,
         }}
         type='text'
         placeholder='Digite um nome: Thor, Hulk, Spider-Man...'

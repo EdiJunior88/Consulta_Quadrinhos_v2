@@ -6,7 +6,9 @@ import CardsComics from "../../Components/Cards/CardsComics/CardsComics";
 import Search from "../../Components/Search/Search";
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
-import CssBaseline from '@mui/material/CssBaseline';
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material";
 
 const Home = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -51,62 +53,83 @@ const Home = () => {
     apiComics();
   };
 
+  //Tema personalizado
+  const theme = createTheme({
+    typography: {
+      fontFamily: "'Sofia Sans Condensed', 'sans-serif'",
+      fontSize: 29,
+    },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: `
+        input:focus {
+          outline: none;
+          border: 2px solid #F21D55;
+        }
+        `,
+      },
+    },
+  });
+
   return (
-    <CssBaseline>
+    <ThemeProvider theme={theme}>
       <header>
-        <Header name="Heroes" to="/heroes" />
+        <Header name='Heroes' to='/heroes' />
       </header>
 
-      <section>
-        <Search
-          filter={(searchResult) => {
-            setSearchResult(searchResult);
-          }}
-        />
+      <CssBaseline>
+        <section>
+          <Search
+            filter={(searchResult) => {
+              setSearchResult(searchResult);
+            }}
+            custom={{ borderColor: "#F21D55" }}
+          />
 
-        {comics.map((comic) => {
-          return (
-            <CardsComics
-              key={comic.id}
-              author={comic.creators?.items.map((nameAuthor, id) => (
-                <span key={id}>{nameAuthor.name}</span>
-              ))}
-              image={comic.thumbnail}
-              description={comic.description}
-            />
-          );
-        })}
+          {comics.map((comic) => {
+            return (
+              <CardsComics
+                key={comic.id}
+                author={comic.creators?.items.map((nameAuthor, id) => (
+                  <span key={id}>{nameAuthor.name}</span>
+                ))}
+                image={comic.thumbnail}
+                description={comic.description}
+              />
+            );
+          })}
 
-        {searchResult !== "" &&
-          (limit <= 90 ? (
-            <div>
+          {searchResult !== "" &&
+            (limit <= 90 ? (
+              <div>
+                <div>
+                  <Button
+                    onClick={() => {
+                      setTimeout(() => {
+                        moreComics();
+                      }, 500);
+                    }}
+                    name='Mais Comics'
+                  />
+                </div>
+              </div>
+            ) : (
               <div>
                 <Button
-                  onClick={() => {
+                  onClick={() =>
                     setTimeout(() => {
+                      setLimit((currentLimit) => currentLimit - 30),
+                        setOffset(offset + 100);
                       moreComics();
-                    }, 500);
-                  }}
+                    }, 500)
+                  }
                   name='Mais Comics'
                 />
               </div>
-            </div>
-          ) : (
-            <div>
-              <Button
-                onClick={() =>
-                  setTimeout(() => {
-                    setLimit((currentLimit) => currentLimit - 30),
-                      setOffset(offset + 100);
-                    moreComics();
-                  }, 500)
-                }
-                name='Mais Comics'
-              />
-            </div>
-          ))}
-      </section>
-    </CssBaseline>
+            ))}
+        </section>
+      </CssBaseline>
+    </ThemeProvider>
   );
 };
 

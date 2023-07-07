@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface InterfaceCardsComics {
   id?: number;
   key?: number;
@@ -24,4 +26,13 @@ export interface InterfaceButton {
 export interface InterfaceHeader {
   name: string;
   to: string;
+}
+
+export interface InterfaceSearch {
+  filter: (searchResult: string) => void;
+  custom: React.CSSProperties;
+}
+
+export interface InterfaceAbout {
+  name: string;
 }

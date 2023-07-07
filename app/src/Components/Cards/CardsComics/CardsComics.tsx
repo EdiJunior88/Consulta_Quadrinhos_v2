@@ -12,11 +12,11 @@ const CardsComics = ({
 }: InterfaceCardsComics) => {
   const [modal, setModal] = useState<boolean>(false);
 
-  const modalAberto = () => {
+  const openModal = () => {
     setModal(true);
   };
 
-  const modalFechado = () => {
+  const closedModal = () => {
     setModal(false);
   };
 
@@ -24,12 +24,12 @@ const CardsComics = ({
     <div>
       <div>
         <p>{name}</p>
-        <button onClick={modalAberto}>
+        <button onClick={openModal}>
           <img src={image?.path + ".jpg"} alt={name} />
         </button>
-        <Modal isOpen={modal} onRequestClose={modalFechado}>
+        <Modal isOpen={modal} onRequestClose={closedModal}>
           <div>
-            <button onClick={modalFechado}>X</button>
+            <button onClick={closedModal}>X</button>
           </div>
           <div>
             {description ? description : <div>🚫 Sem descrição</div>}

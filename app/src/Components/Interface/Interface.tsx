@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface InterfaceCardsComics {
   id?: number;
   key?: number;
@@ -35,4 +33,8 @@ export interface InterfaceSearch {
 
 export interface InterfaceAbout {
   name: string;
+}
+
+export interface InterfaceThemeProvider {
+  children: React.ReactNode;
 }

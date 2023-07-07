@@ -5,15 +5,17 @@ import { InterfaceSearch } from "../Interface/Interface";
 const Search = ({ filter, custom }: InterfaceSearch) => {
   const [text, setText] = useState("");
 
+  //Ao pressionar enter, vai executar a função filter
+  //passando o valor do input como parâmetro.
   const inputKeyboard = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       filter(text);
-      console.log(text);
+      // console.log(text);
     }
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
+    <Box sx={{ display: "flex", justifyContent: "center", marginY: 10 }}>
       <input
         style={{
           borderRadius: 8,
@@ -21,8 +23,6 @@ const Search = ({ filter, custom }: InterfaceSearch) => {
           height: 35,
           fontSize: 22,
           paddingLeft: 10,
-          color: "#F21D55",
-          fontFamily: "'Sofia Sans Condensed', 'sans-serif'",
           ...custom,
         }}
         type='text'

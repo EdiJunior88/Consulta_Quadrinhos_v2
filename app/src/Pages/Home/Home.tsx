@@ -8,7 +8,8 @@ import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material";
+import { Box, createTheme } from "@mui/material";
+import MyThemeProvider from "../../Components/ThemeProvider/MyThemeProvider";
 
 const Home = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -53,28 +54,10 @@ const Home = () => {
     apiComics();
   };
 
-  //Tema personalizado
-  const theme = createTheme({
-    typography: {
-      fontFamily: "'Sofia Sans Condensed', 'sans-serif'",
-      fontSize: 29,
-    },
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: `
-        input:focus {
-          outline: none;
-          border: 2px solid #F21D55;
-        }
-        `,
-      },
-    },
-  });
-
   return (
-    <ThemeProvider theme={theme}>
+    <MyThemeProvider>
       <header>
-        <Header name='Heroes' to='/heroes' />
+        <Header name='Heróis' to='/heroes' />
       </header>
 
       <CssBaseline>
@@ -83,38 +66,58 @@ const Home = () => {
             filter={(searchResult) => {
               setSearchResult(searchResult);
             }}
-            custom={{ borderColor: "#F21D55" }}
+            custom={{ borderColor: "#F21D55", color: "#F21D55" }}
           />
 
-          {comics.map((comic) => {
-            return (
-              <CardsComics
-                key={comic.id}
-                author={comic.creators?.items.map((nameAuthor, id) => (
-                  <span key={id}>{nameAuthor.name}</span>
-                ))}
-                image={comic.thumbnail}
-                description={comic.description}
-              />
-            );
-          })}
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gridTemplateRows: "repeat(2, 1fr)",
+              gridRowGap: "30px",
+              width: "100%",
+              gridAutoFlow: "row",
+            }}>
+            {comics.map((comic) => {
+              const authors = comic.creators?.items || [];
+              return (
+                <CardsComics
+                  key={comic.id}
+                  name={comic.title}
+                  author={
+                    authors.length > 0
+                      ? authors.map((nameAuthor, id) => (
+                          <span key={id} style={{ padding: "0 7px" }}>
+                            {nameAuthor.name}
+                          </span>
+                        ))
+                      : [
+                          <span key={comic.id} style={{ padding: "0 7px" }}>
+                            🚫 Autor não descrito
+                          </span>,
+                        ]
+                  }
+                  image={comic.thumbnail}
+                  description={comic.description}
+                />
+              );
+            })}
+          </Box>
 
           {searchResult !== "" &&
             (limit <= 90 ? (
-              <div>
-                <div>
-                  <Button
-                    onClick={() => {
-                      setTimeout(() => {
-                        moreComics();
-                      }, 500);
-                    }}
-                    name='Mais Comics'
-                  />
-                </div>
-              </div>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Button
+                  onClick={() => {
+                    setTimeout(() => {
+                      moreComics();
+                    }, 500);
+                  }}
+                  name='Mais Comics'
+                />
+              </Box>
             ) : (
-              <div>
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
                   onClick={() =>
                     setTimeout(() => {
@@ -125,11 +128,11 @@ const Home = () => {
                   }
                   name='Mais Comics'
                 />
-              </div>
+              </Box>
             ))}
         </section>
       </CssBaseline>
-    </ThemeProvider>
+    </MyThemeProvider>
   );
 };
 

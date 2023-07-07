@@ -33,7 +33,7 @@ const CardsComics = ({
             margin: "0 auto",
           }}
           onClick={openModal}>
-          <span style={{ fontSize: "1.05em" }}>{name}</span>
+          <span style={{ fontSize: "1.1em", fontWeight: "800"}}>{name}</span>
           <Box>
             <img
               style={{

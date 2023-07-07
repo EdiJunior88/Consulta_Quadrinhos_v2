@@ -86,7 +86,11 @@ const Home = () => {
                   //senão retorna a mensagem "autor não descrito"
                   authors.length > 0
                     ? authors.map((nameAuthor, id) => (
-                        <span key={id} style={{ padding: "0 7px" }}>
+                        <span
+                          key={id}
+                          style={{
+                            padding: "0 7px",
+                          }}>
                           {nameAuthor.name}
                         </span>
                       ))

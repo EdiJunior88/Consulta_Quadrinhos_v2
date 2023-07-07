@@ -17,9 +17,9 @@ const Header = ({ to, name }: InterfaceHeader) => {
           background: "#F21D55",
           color: "#FFF",
         }}>
-        <span className='titleHeader' style={{ cursor: "pointer" }}>
+        <Box className='titleHeader' style={{ cursor: "pointer" }}>
           <About name='Sobre' />
-        </span>
+        </Box>
 
         <Container>
           <Box

@@ -24,7 +24,7 @@ const About = ({ name }: InterfaceAbout) => {
   return (
     <MyThemeProvider>
       <Box>
-        <p onClick={openModal}>{name}</p>
+        <span onClick={openModal}>{name}</span>
         <CssBaseline>
           <Modal isOpen={modal} onRequestClose={closedModal}>
             <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
@@ -62,9 +62,15 @@ const About = ({ name }: InterfaceAbout) => {
               <Typography>
                 <strong>Background</strong> -{" "}
                 <a
-                  href='https://www.freepik.com/free-vector/comic-style-background_12300602.htm#query=comic%20background&position=5&from_view=keyword&track=ais'
+                  href='https://www.freepik.com/free-vector/comic-abstract-blue-background_7997344.htm#query=comic%20background&position=1&from_view=keyword&track=ais'
                   target='_blank'>
-                  Freepik
+                  dgim-studio
+                </a>
+                <span> / </span>
+                <a
+                  href='https://www.freepik.com/free-vector/flat-design-bright-comics-wallpaper_11740828.htm#query=comic%20background&position=3&from_view=keyword&track=ais"'
+                  target='_blank'>
+                  FreePik
                 </a>
               </Typography>
             </Box>

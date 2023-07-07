@@ -11,6 +11,10 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
+      body {
+        background: url(../../src/assets/background-red.webp) center center no-repeat fixed;
+        background-size: cover;
+      }
       input:focus {
         outline: none;
         border: 2px solid #F21D55;

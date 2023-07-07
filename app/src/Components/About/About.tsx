@@ -59,7 +59,7 @@ const About = ({ name }: InterfaceAbout) => {
                 <button onClick={closedModal}>X</button>
               </div>
 
-              <Box sx={{ paddingX: 2, textAlign: "justify" }}>
+              <Box sx={{ paddingX: 2, textAlign: "justify", wordWrap: "break-word" }}>
                 <Typography sx={{ paddingTop: 2 }}>
                   Projeto Front-End{" "}
                   <strong>

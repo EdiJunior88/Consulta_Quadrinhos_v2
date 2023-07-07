@@ -1,5 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import { InterfaceThemeProvider } from "../Interface/Interface";
+import backgroundRed from "../../assets/background-red.webp"
 
 //Tema personalizado
 //React Context
@@ -12,8 +13,8 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: `
       body {
-        background: url('src/assets/background-red.webp') center center no-repeat fixed;
-        background-size: cover;
+        background: url(${backgroundRed}) 50% no-repeat fixed;
+        background-size: "cover";
       }
       input:focus {
         outline: none;

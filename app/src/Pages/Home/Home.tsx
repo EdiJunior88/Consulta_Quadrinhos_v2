@@ -57,7 +57,6 @@ const Home = () => {
       <header>
         <Header name='Heróis' to='/heroes' />
       </header>
-
       <section>
         <Search
           filter={(searchResult) => {
@@ -65,7 +64,6 @@ const Home = () => {
           }}
           custom={{ borderColor: "#F21D55", color: "#F21D55" }}
         />
-
         <Box
           sx={{
             display: "grid",
@@ -104,7 +102,6 @@ const Home = () => {
             );
           })}
         </Box>
-
         {searchResult !== "" &&
           (limit <= 90 ? (
             <Box sx={{ display: "flex", justifyContent: "center" }}>

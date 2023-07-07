@@ -13,7 +13,14 @@ const Header = ({ to, name }: InterfaceHeader) => {
         justifyContent: "center",
         alignItems: "center",
         background: "#F21D55",
+        color: "#FFF",
       }}>
+      <Box>
+        <Typography style={{ cursor: "pointer" }}>
+          <About name='Sobre' />
+        </Typography>
+      </Box>
+
       <Container>
         <Box
           sx={{
@@ -22,7 +29,6 @@ const Header = ({ to, name }: InterfaceHeader) => {
             width: "auto",
             height: 90,
             paddingY: 2,
-            paddingLeft: 20,
           }}>
           <img src={logo} alt='Marvel Logo' />
         </Box>
@@ -35,16 +41,10 @@ const Header = ({ to, name }: InterfaceHeader) => {
           alignItems: "center",
           margin: 0,
           gap: 2,
-          cursor: "pointer",
-          color: "#FFF",
         }}>
         <Link to={to} style={{ textDecoration: "none", color: "#FFF" }}>
           <Typography>{name}</Typography>
         </Link>
-
-        <Typography>
-          <About name='Sobre' />
-        </Typography>
       </Box>
     </Container>
   );

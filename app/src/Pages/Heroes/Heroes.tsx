@@ -9,7 +9,7 @@ import Header from "../../Components/Header/Header";
 import { Box } from "@mui/material";
 import MyThemeProvider from "../../Components/ThemeProvider/MyThemeProvider";
 
-const Home = () => {
+const Heroes = () => {
   const url = "https://gateway.marvel.com/v1/public/";
   const publicKey = import.meta.env.VITE_API_PUBLIC_KEY;
   const privateKey = import.meta.env.VITE_API_PRIVATE_KEY;
@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <MyThemeProvider>
       <header>
-        <Header name='Heróis' to='/herois' />
+        <Header name='Home' to='/' />
       </header>
       <section>
         <Search
@@ -137,4 +137,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Heroes;

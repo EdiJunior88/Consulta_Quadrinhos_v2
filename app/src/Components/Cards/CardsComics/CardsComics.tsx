@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import { InterfaceCardsComics } from "../../Interface/Interface";
+import { InterfaceCardsHeroes } from "../../Interface/Interface";
 import { Box, Typography } from "@mui/material";
 import MyThemeProvider from "../../ThemeProvider/MyThemeRedProvider";
 
@@ -11,7 +11,7 @@ const CardsComics = ({
   name,
   image,
   description,
-}: InterfaceCardsComics) => {
+}: InterfaceCardsHeroes) => {
   const [modal, setModal] = useState<boolean>(false);
 
   const openModal = () => {

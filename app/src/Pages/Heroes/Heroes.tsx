@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import md5 from "md5";
 import axios from "axios";
-import { InterfaceCardsComics } from "../../Components/Interface/Interface";
-import CardsComics from "../../Components/Cards/CardsComics/CardsComics";
+import { InterfaceCardsHeroes } from "../../Components/Interface/Interface";
 import Search from "../../Components/Search/Search";
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import { Box } from "@mui/material";
-import MyThemeProvider from "../../Components/ThemeProvider/MyThemeRedProvider";
+import CardsHeroes from "../../Components/Cards/CardsHeroes/CardsHeroes";
 import MyThemeBlueProvider from "../../Components/ThemeProvider/MyThemeBlueProvider";
 
 const Heroes = () => {
@@ -17,7 +16,7 @@ const Heroes = () => {
   const date = Number(new Date());
   const hash = md5(date + privateKey + publicKey);
 
-  const [comics, setComics] = useState<Array<InterfaceCardsComics>>([]);
+  const [heroes, setHeroes] = useState<Array<InterfaceCardsHeroes>>([]);
   const [searchResult, setSearchResult] = useState("");
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
@@ -25,7 +24,7 @@ const Heroes = () => {
   /* Evita Carregar a API sem ter alguma informação digitada no input */
   useEffect(() => {
     if (searchResult !== "") {
-      apiComics();
+      apiHeroes();
     }
   }, [searchResult, limit, offset]);
 
@@ -33,13 +32,13 @@ const Heroes = () => {
   /* O resultado digitado no input text fica armazenado no Hook resultadoPesquisa */
   /* O Hook limite se refere ao máximo de solicitações por vez da API (100 solicitações por vez) */
   /* O Hook offset reinicia a contagem do hook limite para não dar um erro de chamada da API caso ultrapasse o limite */
-  const apiComics = () => {
+  const apiHeroes = () => {
     axios
       .get(
-        `${url}comics?titleStartsWith=${searchResult}&ts=${date}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}&orderBy=title`
+        `${url}characters?nameStartsWith=${searchResult}&ts=${date}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}&orderBy=name`
       )
       .then((response) => {
-        setComics(response.data.data.results);
+        setHeroes(response.data.data.results);
         console.log("CHAMANDO API", response);
       })
       .catch((errorAPI) => {
@@ -48,9 +47,9 @@ const Heroes = () => {
   };
 
   /* Acrescentando mais 30 novos resultados e chamando a API */
-  const moreComics = () => {
+  const moreHeroes = () => {
     setLimit((currentLimit) => currentLimit + 30);
-    apiComics();
+    apiHeroes();
   };
 
   return (
@@ -73,35 +72,17 @@ const Heroes = () => {
             width: "100%",
             gridAutoFlow: "row",
           }}>
-          {comics.map((comic) => {
-            //verificar se o array de autores da API não está vazio,
-            const authors = comic.creators?.items || [];
+          {heroes.map((hero) => {
             return (
-              <CardsComics
-                key={comic.id}
-                name={comic.title}
-                author={
-                  //Verificar se a quantidade de autores é maior que 0,
-                  //Se for sim, retorna os autores separados por vírgula,
-                  //senão retorna a mensagem "autor não descrito"
-                  authors.length > 0
-                    ? authors.map((nameAuthor, id) => (
-                        <span
-                          key={id}
-                          style={{
-                            padding: "0 7px",
-                          }}>
-                          {nameAuthor.name}
-                        </span>
-                      ))
-                    : [
-                        <span key={comic.id} style={{ padding: "0 7px" }}>
-                          🚫 Autor não descrito
-                        </span>,
-                      ]
-                }
-                image={comic.thumbnail}
-                description={comic.description}
+              <CardsHeroes
+                key={hero.id}
+                name={hero.name}
+                alt={hero.name}
+                image={hero.thumbnail}
+                description={hero.description}
+                comicsTitle={hero.comics?.items.map((heroes, id) => {
+                  return <span key={id}>{heroes.name}</span>;
+                })}
               />
             );
           })}
@@ -112,7 +93,7 @@ const Heroes = () => {
               <Button
                 onClick={() => {
                   setTimeout(() => {
-                    moreComics();
+                    moreHeroes();
                   }, 500);
                 }}
                 name='Mais Comics'
@@ -125,10 +106,10 @@ const Heroes = () => {
                   setTimeout(() => {
                     setLimit((currentLimit) => currentLimit - 30),
                       setOffset(offset + 100);
-                    moreComics();
+                    moreHeroes();
                   }, 500)
                 }
-                name='Mais Comics'
+                name='Mais Heróis'
               />
             </Box>
           ))}

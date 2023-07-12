@@ -10,6 +10,22 @@ export interface InterfaceCardsComics {
   thumbnail?: { path: string };
 }
 
+export interface InterfaceCardsHeroes {
+  id?: number;
+  key?: number;
+  alt?: string;
+  author?: JSX.Element[];
+  image?: { path: string };
+  name?: string;
+  description?: string | null;
+  title?: string;
+  thumbnail?: { path: string };
+  comics?: {
+    items: Array<{ name: string }>;
+  };
+  comicsTitle?: JSX.Element[];
+}
+
 export interface InterfaceComicsGet {
   resultSearch: number;
   limit: number;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { InterfaceCardsComics } from "../../Interface/Interface";
 import { Box, Typography } from "@mui/material";
-import MyThemeProvider from "../../ThemeProvider/MyThemeProvider";
+import MyThemeProvider from "../../ThemeProvider/MyThemeRedProvider";
 
 Modal.setAppElement("#root");
 
@@ -33,7 +33,7 @@ const CardsComics = ({
             margin: "0 auto",
           }}
           onClick={openModal}>
-          <span style={{ fontSize: "1.1em", fontWeight: "800"}}>{name}</span>
+          <span style={{ fontSize: "1.1em", fontWeight: "800" }}>{name}</span>
           <Box>
             <img
               style={{

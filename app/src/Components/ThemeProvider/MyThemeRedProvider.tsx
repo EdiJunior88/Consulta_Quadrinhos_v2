@@ -2,7 +2,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import { InterfaceThemeProvider } from "../Interface/Interface";
 import backgroundRed from "../../assets/background-red.webp"
 
-//Tema personalizado
+//Tema personalizado (Vermelho)
 //React Context
 const theme = createTheme({
   typography: {
@@ -14,7 +14,11 @@ const theme = createTheme({
       styleOverrides: `
       body {
         background: url(${backgroundRed}) 50% no-repeat fixed;
-        background-size: "cover";
+        background-size: cover;
+      }
+      input, input[type="text"], input::placeholder {
+        border-color: #F21D55;
+        color: #F21D55;
       }
       input:focus {
         outline: none;
@@ -22,6 +26,9 @@ const theme = createTheme({
       }
       p, input {
         font-family: 'Sofia Sans Condensed', 'sans-serif';
+      }
+      .containerHeader {
+        background: #EB104B;
       }
       .titleHeader {
         font-size: 2em;
@@ -41,8 +48,8 @@ const theme = createTheme({
   },
 });
 
-const MyThemeProvider = ({ children }: InterfaceThemeProvider) => {
+const MyThemeRedProvider = ({ children }: InterfaceThemeProvider) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-export default MyThemeProvider;
+export default MyThemeRedProvider;

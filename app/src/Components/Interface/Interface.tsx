@@ -28,7 +28,6 @@ export interface InterfaceHeader {
 
 export interface InterfaceSearch {
   filter: (searchResult: string) => void;
-  custom: React.CSSProperties;
 }
 
 export interface InterfaceAbout {

@@ -3,18 +3,17 @@ import logo from "../../assets/marvel-comics-logo.svg";
 import { InterfaceHeader } from "../Interface/Interface";
 import { Box, Container } from "@mui/material";
 import About from "../About/About";
-import MyThemeProvider from "../ThemeProvider/MyThemeProvider";
 
 const Header = ({ to, name }: InterfaceHeader) => {
   return (
-    <MyThemeProvider>
+    <>
       <Container
         maxWidth='xl'
+        className='containerHeader'
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background: "#F21D55",
           color: "#FFF",
         }}>
         <Box className='titleHeader' style={{ cursor: "pointer" }}>
@@ -47,7 +46,7 @@ const Header = ({ to, name }: InterfaceHeader) => {
           </Link>
         </Box>
       </Container>
-    </MyThemeProvider>
+    </>
   );
 };
 

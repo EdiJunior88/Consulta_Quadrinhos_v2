@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import { InterfaceSearch } from "../Interface/Interface";
 
-const Search = ({ filter, custom }: InterfaceSearch) => {
+const Search = ({ filter }: InterfaceSearch) => {
   const [text, setText] = useState("");
 
   //Ao pressionar enter, vai executar a função filter
@@ -23,8 +23,8 @@ const Search = ({ filter, custom }: InterfaceSearch) => {
           height: 35,
           fontSize: 22,
           paddingLeft: 10,
-          ...custom,
         }}
+        className='inputSearch'
         type='text'
         placeholder='Digite um nome: Thor, Hulk, Spider-Man...'
         onChange={(event) => setText(event.target.value)}

@@ -7,7 +7,7 @@ import Search from "../../Components/Search/Search";
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
 import { Box } from "@mui/material";
-import MyThemeProvider from "../../Components/ThemeProvider/MyThemeProvider";
+import MyThemeRedProvider from "../../Components/ThemeProvider/MyThemeRedProvider";
 
 const Home = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -53,7 +53,7 @@ const Home = () => {
   };
 
   return (
-    <MyThemeProvider>
+    <MyThemeRedProvider>
       <header>
         <Header name='Heróis' to='/herois' />
       </header>
@@ -62,7 +62,6 @@ const Home = () => {
           filter={(searchResult) => {
             setSearchResult(searchResult);
           }}
-          custom={{ borderColor: "#F21D55", color: "#F21D55" }}
         />
         <Box
           sx={{
@@ -133,7 +132,7 @@ const Home = () => {
             </Box>
           ))}
       </section>
-    </MyThemeProvider>
+    </MyThemeRedProvider>
   );
 };
 

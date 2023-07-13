@@ -62,13 +62,23 @@ const About = ({ name }: InterfaceAbout) => {
                 href='https://www.freepik.com/free-vector/comic-abstract-blue-background_7997344.htm#query=comic%20background&position=1&from_view=keyword&track=ais'
                 target='_blank'>
                 dgim-studio
-              </a>
-              <span> / </span>
+              </a>{" "}
+              /{" "}
               <a
                 href='https://www.freepik.com/free-vector/flat-design-bright-comics-wallpaper_11740828.htm#query=comic%20background&position=3&from_view=keyword&track=ais"'
                 target='_blank'>
                 FreePik
               </a>
+              <Typography sx={{ paddingY: 2 }}>
+                Site feito por Edivaldo Junior (tenho mais conteúdos em meu
+                GitHub)
+              </Typography>
+              <Typography>
+                <strong>EdiJunior88</strong> -{" "}
+                <a href='https://github.com/EdiJunior88' target='_blank'>
+                  https://github.com/EdiJunior88
+                </a>
+              </Typography>
             </Typography>
           </Box>
         </Modal>

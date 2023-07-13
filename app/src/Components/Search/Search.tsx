@@ -14,8 +14,19 @@ const Search = ({ filter }: InterfaceSearch) => {
     }
   };
 
+  //Busca os valores do input clicando na lupa
+  const filterClick = () => {
+    filter(text);
+  };
+
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", marginY: 10 }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginY: 10,
+      }}>
       <input
         style={{
           borderRadius: 8,
@@ -31,6 +42,11 @@ const Search = ({ filter }: InterfaceSearch) => {
         value={text}
         onKeyDown={inputKeyboard}
       />
+      <Box>
+        <button onClick={filterClick} className='buttonSearch'>
+          🔎
+        </button>
+      </Box>
     </Box>
   );
 };

@@ -7,7 +7,7 @@ import backgroundRed from "../../assets/background-red.webp"
 const theme = createTheme({
   typography: {
     fontFamily: "'Sofia Sans Condensed', 'sans-serif'",
-    fontSize: 15,
+    fontSize: 16,
   },
   components: {
     MuiCssBaseline: {

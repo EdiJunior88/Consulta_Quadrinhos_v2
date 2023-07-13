@@ -7,7 +7,7 @@ import backgroundBlue from "../../assets/background-blue.webp";
 const theme = createTheme({
   typography: {
     fontFamily: "'Sofia Sans Condensed', 'sans-serif'",
-    fontSize: 15,
+    fontSize: 16,
   },
   components: {
     MuiCssBaseline: {

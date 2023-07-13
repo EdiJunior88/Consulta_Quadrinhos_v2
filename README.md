@@ -108,8 +108,16 @@
 <img src="./app/src/assets/versao-desktop(1).jpg">
 
 <h3>Versão Mobile</h3>
-<img src="./app/src/assets/responsiva-versao-mobile.jpg">
-<img src="./app/src/assets/responsiva-versao-mobile(1).jpg">
+<table>
+  <tr>
+    <td>
+      <img src="./app/src/assets/responsiva-versao-mobile.jpg">
+    </td>
+    <td>
+      <img src="./app/src/assets/responsiva-versao-mobile(1).jpg">
+    </td>
+  </tr>
+</table>
 
 <hr>
 

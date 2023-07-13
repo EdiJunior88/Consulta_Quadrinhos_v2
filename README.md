@@ -4,7 +4,7 @@
 
 <h2>Consulta Quadrinhos (Comics) v2.0</h2>
 
-<p>Projeto Front-End <strong>(HTML, CSS, JavaScript, React, TypeScript e Material UI)</strong>ong> com o objetivo de listar com detalhes todos as comics lançadas pela <strong>Editora Marvel</strong> até o ano atual, incluindo os nomes, ano de lançamento e autores de cada Comics, também tem uma página dedicada à todos os heróis, listadas em ordem alfabética.</p>
+<p>Projeto Front-End <strong>(HTML, CSS, JavaScript, React, TypeScript e Material UI)</strong> com o objetivo de listar com detalhes todos as comics lançadas pela <strong>Editora Marvel</strong> até o ano atual, incluindo os nomes, ano de lançamento e autores de cada Comics, também tem uma página dedicada à todos os heróis, listadas em ordem alfabética.</p>
 
 <hr>
 

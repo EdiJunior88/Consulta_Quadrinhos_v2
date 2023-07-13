@@ -13,7 +13,7 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: `
       body {
-        background: url(${backgroundBlue}) 50% no-repeat fixed;
+        background: url(${backgroundBlue}) 100% no-repeat fixed;
         background-size: cover;
       }
       input, input[type="text"], input::placeholder {

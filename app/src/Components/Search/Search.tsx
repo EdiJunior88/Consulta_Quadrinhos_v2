@@ -30,7 +30,7 @@ const Search = ({ filter }: InterfaceSearch) => {
       <input
         style={{
           borderRadius: 8,
-          width: 400,
+          minWidth: "50vw",
           height: 35,
           fontSize: 22,
           paddingLeft: 10,

@@ -18,8 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <Container
-      maxWidth='xl'
+    <Box
       className='containerHeader'
       sx={{
         display: "flex",
@@ -30,6 +29,7 @@ const Footer = () => {
         position: "fixed",
         bottom: 0,
         marginTop: 50,
+        width: "100%",
       }}>
       <Container>
         <Box
@@ -38,15 +38,15 @@ const Footer = () => {
             justifyContent: "space-between",
             alignItems: "center",
           }}>
-          <span>
+          <span className='footerText'>
             © {new Date().getFullYear()} MARVEL. Todos os direitos reservados.
           </span>
 
           <Box>
-            <Button onClick={scrollToTop}>
+            <Button onClick={scrollToTop} sx={{ padding: 0 }}>
               <img className='imageIconFooter' src={ArrowUp} alt='Arrow Up' />
             </Button>
-            <Button onClick={scrollToBottom}>
+            <Button onClick={scrollToBottom} sx={{ padding: 0 }}>
               <img
                 className='imageIconFooter'
                 src={ArrowDown}
@@ -56,7 +56,7 @@ const Footer = () => {
           </Box>
         </Box>
       </Container>
-    </Container>
+    </Box>
   );
 };
 

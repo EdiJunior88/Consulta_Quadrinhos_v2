@@ -1,6 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import { InterfaceThemeProvider } from "../Interface/Interface";
-import backgroundRed from "../../assets/background-red.webp"
+import backgroundRed from "../../assets/background-red.webp";
 
 //Tema personalizado (Vermelho)
 //React Context
@@ -46,6 +46,45 @@ const theme = createTheme({
       }
       .imageIconFooter {
         height: 35px;
+      }
+      @media (width <= 460px) {
+        .logo {
+          height: 50px;
+          padding: 0 20px
+        }
+        .titleHeader {
+          font-size: 1.7em;
+        }
+        input, input[type="text"], input::placeholder{
+          font-size: 0.63em;
+        }
+        .textAbout {
+          font-size: 0.5em;
+        }
+        .footerText {
+          font-size: 0.6em;
+        }
+        .imageIconFooter {
+          width: 25px;
+        }
+        .containerHeader {
+          font-size: 0.9em;
+        }
+        .textAbout {
+          font-size: 0.8em;
+        }
+        .buttonClosedModal {
+          width: 27px;
+          height: 25px;
+          font-size: 0.6em;
+          padding-left: 8px;
+        }
+        .MuiButton-root {
+          min-width: 40px;
+        }
+        .buttonFooter {
+          min-width: 40px;
+        }
       }
       `,
     },

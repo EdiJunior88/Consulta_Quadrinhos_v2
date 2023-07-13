@@ -4,7 +4,7 @@
 
 <h2>Consulta Quadrinhos (Comics) v2.0</h2>
 
-<p>Projeto Front-End <strong>(HTML, CSS, JavaScript, React, TypeScript e Material UI)</strong>ong> com o objetivo de listar com detalhes todos as comics lançadas p<strong>Editora Marvel</strong>/strong> até o ano atual, incluindo os nomes, ano de lançamento e autores de cada Comics, também tem uma página dedicada à todos os heróis, listadas em ordem alfabética.</p>
+<p>Projeto Front-End <strong>(HTML, CSS, JavaScript, React, TypeScript e Material UI)</strong>ong> com o objetivo de listar com detalhes todos as comics lançadas pela <strong>Editora Marvel</strong> até o ano atual, incluindo os nomes, ano de lançamento e autores de cada Comics, também tem uma página dedicada à todos os heróis, listadas em ordem alfabética.</p>
 
 <hr>
 
@@ -14,7 +14,7 @@
   <tr>
     <td>
       <p>
-        <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='windows' src='https://img.shields.io/badge/Windows_11-100000?style=plastic&logo=windows&logoColor=white&labelColor=626262&color=0DFFE3'/></a>
+        <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='Linux' src='https://img.shields.io/badge/Linux-100000?style=plastic&logo=Linux&logoColor=white&labelColor=000000&color=000000'/></a>
       </p>
     </td>
     <td>
@@ -34,12 +34,17 @@
     </td>
     <td>
       <p>
-        <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='cssmodules' src='https://img.shields.io/badge/CSS_Modules-100000?style=plastic&logo=cssmodules&logoColor=white&labelColor=626262&color=E30DFF'/></a>
+        <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='MUI' src='https://img.shields.io/badge/Material_UI-100000?style=plastic&logo=MUI&logoColor=white&labelColor=FFAD31&color=FFAD31'/></a>
       </p>
     </td>
     <td>
       <p>
         <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='React' src='https://img.shields.io/badge/React-100000?style=plastic&logo=React&logoColor=white&labelColor=626262&color=1833FF'/></a>
+      </p>
+    </td>
+    <td>
+      <p>
+        <a href='https://github.com/shivamkapasia0' target="_blank"><img alt='Typescript' src='https://img.shields.io/badge/Typescript-100000?style=plastic&logo=Typescript&logoColor=white&labelColor=203DC0&color=203DC0'/></a>
       </p>
     </td>
   </tr>

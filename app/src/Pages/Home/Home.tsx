@@ -9,6 +9,8 @@ import Header from "../../Components/Header/Header";
 import { Box } from "@mui/material";
 import MyThemeRedProvider from "../../Components/ThemeProvider/MyThemeRedProvider";
 import { Riple } from "react-loading-indicators";
+import Footer from "../../Components/Footer/Footer";
+import ErrorMessage from "../../Components/Error/ErrorMessage";
 
 const Home = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -22,6 +24,7 @@ const Home = () => {
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [errorAPI, setErrorAPI] = useState(null);
 
   /* Evita Carregar a API sem ter alguma informação digitada no input */
   useEffect(() => {
@@ -32,8 +35,10 @@ const Home = () => {
 
   /* Função para chamar a API através do input text */
   /* O resultado digitado no input text fica armazenado no Hook resultadoPesquisa */
-  /* O Hook limite se refere ao máximo de solicitações por vez da API (100 solicitações por vez) */
-  /* O Hook offset reinicia a contagem do hook limite para não dar um erro de chamada da API caso ultrapasse o limite */
+  /* O Hook limite se refere ao máximo de solicitações por vez da API 
+  (100 solicitações por vez) */
+  /* O Hook offset reinicia a contagem do hook limite para não dar um erro de 
+  chamada da API caso ultrapasse o limite */
   const apiComics = () => {
     setLoading(true);
     axios
@@ -43,11 +48,12 @@ const Home = () => {
       .then((response) => {
         setLoading(false);
         setComics(response.data.data.results);
-        console.log("CHAMANDO API", response);
+        // console.log("CHAMANDO API", response);
       })
       .catch((errorAPI) => {
         setLoading(false);
-        console.log(errorAPI);
+        setErrorAPI(errorAPI);
+        // console.log("ERRO API", errorAPI);
       });
   };
 
@@ -83,7 +89,7 @@ const Home = () => {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               gridTemplateRows: "repeat(2, 1fr)",
-              gridRowGap: "30px",
+              gridRowGap: "20px",
               width: "100%",
               gridAutoFlow: "row",
             }}>
@@ -122,6 +128,9 @@ const Home = () => {
           </Box>
         )}
 
+        {/* Mensagem de erro da API */}
+        {errorAPI && <ErrorMessage />}
+
         {searchResult !== "" &&
           (limit <= 90 ? (
             <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -149,6 +158,8 @@ const Home = () => {
             </Box>
           ))}
       </section>
+
+      <Footer />
     </MyThemeRedProvider>
   );
 };

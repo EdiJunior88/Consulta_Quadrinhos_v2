@@ -8,6 +8,9 @@ import Header from "../../Components/Header/Header";
 import { Box } from "@mui/material";
 import CardsHeroes from "../../Components/Cards/CardsHeroes/CardsHeroes";
 import MyThemeBlueProvider from "../../Components/ThemeProvider/MyThemeBlueProvider";
+import Footer from "../../Components/Footer/Footer";
+import { Riple } from "react-loading-indicators";
+import ErrorMessage from "../../Components/Error/ErrorMessage";
 
 const Heroes = () => {
   const url = "https://gateway.marvel.com/v1/public/";
@@ -20,6 +23,8 @@ const Heroes = () => {
   const [searchResult, setSearchResult] = useState("");
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [errorAPI, setErrorAPI] = useState(null);
 
   /* Evita Carregar a API sem ter alguma informação digitada no input */
   useEffect(() => {
@@ -33,16 +38,20 @@ const Heroes = () => {
   /* O Hook limite se refere ao máximo de solicitações por vez da API (100 solicitações por vez) */
   /* O Hook offset reinicia a contagem do hook limite para não dar um erro de chamada da API caso ultrapasse o limite */
   const apiHeroes = () => {
+    setLoading(true);
     axios
       .get(
         `${url}characters?nameStartsWith=${searchResult}&ts=${date}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}&orderBy=name`
       )
       .then((response) => {
+        setLoading(false);
         setHeroes(response.data.data.results);
-        console.log("CHAMANDO API", response);
+        // console.log("CHAMANDO API", response);
       })
       .catch((errorAPI) => {
-        console.log(errorAPI);
+        setLoading(false);
+        setErrorAPI(errorAPI);
+        // console.log("ERRO API", errorAPI);
       });
   };
 
@@ -63,30 +72,53 @@ const Heroes = () => {
             setSearchResult(searchResult);
           }}
         />
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gridTemplateRows: "repeat(2, 1fr)",
-            gridRowGap: "30px",
-            width: "100%",
-            gridAutoFlow: "row",
-          }}>
-          {heroes.map((hero) => {
-            return (
-              <CardsHeroes
-                key={hero.id}
-                name={hero.name}
-                alt={hero.name}
-                image={hero.thumbnail}
-                description={hero.description}
-                comicsTitle={hero.comics?.items.map((heroes, id) => {
-                  return <span key={id}>{heroes.name}</span>;
-                })}
-              />
-            );
-          })}
-        </Box>
+        {loading ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "20px",
+            }}>
+            <Riple color='#FCF000' size='large' />
+          </div>
+        ) : (
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gridTemplateRows: "repeat(2, 1fr)",
+              gridRowGap: "30px",
+              width: "100%",
+              gridAutoFlow: "row",
+            }}>
+            {heroes.map((hero) => {
+              return (
+                <CardsHeroes
+                  key={hero.id}
+                  name={hero.name}
+                  alt={hero.name}
+                  image={hero.thumbnail}
+                  description={hero.description}
+                  comicsTitle={hero.comics?.items.map((heroes, id) => {
+                    return (
+                      <span
+                        key={id}
+                        style={{
+                          padding: "0 7px",
+                        }}>
+                        {heroes.name}
+                      </span>
+                    );
+                  })}
+                />
+              );
+            })}
+          </Box>
+        )}
+
+        {/* Mensagem de erro da API */}
+        {errorAPI && <ErrorMessage />}
+
         {searchResult !== "" &&
           (limit <= 90 ? (
             <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -96,7 +128,7 @@ const Heroes = () => {
                     moreHeroes();
                   }, 500);
                 }}
-                name='Mais Comics'
+                name='Mais Heróis'
               />
             </Box>
           ) : (
@@ -114,6 +146,8 @@ const Heroes = () => {
             </Box>
           ))}
       </section>
+
+      <Footer />
     </MyThemeBlueProvider>
   );
 };

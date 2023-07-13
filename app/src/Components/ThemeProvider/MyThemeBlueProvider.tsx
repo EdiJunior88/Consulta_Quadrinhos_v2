@@ -42,6 +42,10 @@ const theme = createTheme({
         margin: 15px;
         padding: 5px 10px;
         font-weight: bolder;
+        font-size: 0.95em;
+      }
+      .imageIconFooter {
+        height: 35px;
       }
       `,
     },

@@ -1,4 +1,4 @@
-import { Box, CssBaseline, Typography } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import { useState } from "react";
 import Modal from "react-modal";
 import { InterfaceAbout } from "../Interface/Interface";
@@ -67,7 +67,7 @@ const About = ({ name }: InterfaceAbout) => {
                 target='_blank'>
                 dgim-studio
               </a>{" "}
-              / {" "}
+              /{" "}
               <a
                 href='https://www.freepik.com/free-vector/flat-design-bright-comics-wallpaper_11740828.htm#query=comic%20background&position=3&from_view=keyword&track=ais"'
                 target='_blank'>

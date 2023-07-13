@@ -103,8 +103,13 @@
 
 <hr>
 
+<h3>Versão Desktop</h3>
 <img src="./app/src/assets/versao-desktop.jpg">
 <img src="./app/src/assets/versao-desktop(1).jpg">
+
+<h3>Versão Mobile</h3>
+<img src="./app/src/assets/responsiva-versao-mobile.jpg">
+<img src="./app/src/assets/responsiva-versao-mobile(1).jpg">
 
 <hr>
 

@@ -97,10 +97,14 @@
 <hr>
 
 <h3>Site e Status do Projeto</h3>
-<a href="https://consultaquadrinhosv2.netlify.app/" target="_blank">https://consultaquadrinhosv2.netlify.app/</a>
-<a href="https://app.netlify.com/sites/consultaquadrinhosv2/deploys" target="_blank">
-  <img src="https://api.netlify.com/api/v1/badges/d1490e0f-70ec-4e44-96d6-d5f038804ca7/deploy-status" />
-</a>
+<p>
+  <a href="https://consultaquadrinhosv2.netlify.app/" target="_blank">https://consultaquadrinhosv2.netlify.app/</a>
+</p>
+<p>
+  <a href="https://app.netlify.com/sites/consultaquadrinhosv2/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/d1490e0f-70ec-4e44-96d6-d5f038804ca7/deploy-status" />
+  </a>
+</p>
 
 <hr>
 

@@ -1,19 +1,17 @@
-name: Github Action Merge Dependabot
-# You may pin to the exact commit or the version.
-# uses: fastify/github-action-merge-dependabot@1ce173cafbad45cb55d64a35613f54ad67fe3e7d
-uses: fastify/github-action-merge-dependabot@v3.3.0
+name: Dependabot Auto Merge
+  # You may pin to the exact commit or the version.
+  # uses: ahmadnassri/action-dependabot-auto-merge@45fc124d949b19b6b8bf6645b6c9d55f4f9ac61a
+  uses: ahmadnassri/action-dependabot-auto-merge@v2.6.6
   with:
-  # A GitHub token
-  github-token: # optional, default is ${{ github.token }}
-  # Packages that you want to manually review before upgrading
-  exclude: # optional
-  # If true, the PR is only approved but not merged
-  approve-only: # optional
-  # The merge method you would like to use (squash, merge, rebase)
-  merge-method: # optional, default is squash
-  # An arbitrary message that you'd like to comment on the PR after it gets auto-merged
-  merge-comment: # optional, default is 
-  # Auto-merge on major, minor, patch updates based on Semantic Versioning
-  target: # optional, default is any
-  # A pull request number, only required if triggered from a workflow_dispatch event
-  pr-number: # optional
+    # The GitHub token used to merge the pull-request
+    github-token: 
+    # Path to configuration file (relative to root)
+    config: # optional, default is .github/auto-merge.yml
+    # The command to pass to Dependabot as a comment
+    command: # optional, default is merge
+    # The bot to tag in approve/comment message. You can use this to create your own merge bot.
+    botName: # optional, default is dependabot
+    # Auto-approve pull-requests
+    approve: # optional, default is true
+    # The version comparison target (major, minor, patch). This is ignored if .github/auto-merge.yml exists
+    target: # optional, default is patch

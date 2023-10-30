@@ -1,0 +1,9 @@
+- name: Dependabot Auto Merge
+  uses: ahmadnassri/action-dependabot-auto-merge@v2.6.6
+  with:
+    github-token: null
+    config: null
+    command: null
+    botName: null
+    approve: null
+    target: null

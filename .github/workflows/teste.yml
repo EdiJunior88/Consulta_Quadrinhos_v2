@@ -4,7 +4,7 @@
   uses: mitto98/dependabot-automerge-action@v1.0.0
   with:
     # GitHub token
-    token: ${{ secrets.GITHUB_TOKEN }}
+    token: teste
     # Labels for major releases
     labels-major: # optional
     # Auto label all releases

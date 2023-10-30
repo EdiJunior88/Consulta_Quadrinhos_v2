@@ -1,4 +1,4 @@
-- name: Dependabot automerge action
+- name: teste
   # You may pin to the exact commit or the version.
   # uses: mitto98/dependabot-automerge-action@faa145a0a5d8c807179907e7d366bddf6e023d00
   uses: mitto98/dependabot-automerge-action@v1.0.0

@@ -1,6 +1,6 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
+# Para começar com as atualizações de versão do Dependabot, você precisará especificar qual
+# ecossistemas de pacotes a serem atualizados e onde os manifestos do pacote estão localizados.
+# Consulte a documentação para todas as opções de configuração:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-update
 
 version: 2

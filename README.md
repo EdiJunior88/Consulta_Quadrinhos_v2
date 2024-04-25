@@ -23,15 +23,11 @@ Para ver todas as tecnologias [clique aqui](/techstack.md)
 
 <hr>
 
-<strong>Link do projeto:</strong> <a href="https://consultaquadrinhosv2.netlify.app/" target="_blank">https://consultaquadrinhosv2.netlify.app/</a>
+<strong>Link do projeto:</strong> <a href="https://edijunior88-consultaquadrinhosv2.netlify.app/" target="_blank">https://edijunior88-consultaquadrinhosv2.netlify.app/</a>
 <hr>
 
 <h3>Status do Projeto</h3>
-<p>
-  <a href="https://app.netlify.com/sites/consultaquadrinhosv2/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/d1490e0f-70ec-4e44-96d6-d5f038804ca7/deploy-status" />
-  </a>
-</p>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7c63b5b9-9e92-4e8d-b18f-9af716b4805a/deploy-status)](https://app.netlify.com/sites/edijunior88-consultaquadrinhosv2/deploys)
 
 <hr>
 

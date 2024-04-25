@@ -27,7 +27,9 @@ Para ver todas as tecnologias [clique aqui](/techstack.md)
 <hr>
 
 <h3>Status do Projeto</h3>
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7c63b5b9-9e92-4e8d-b18f-9af716b4805a/deploy-status)](https://app.netlify.com/sites/edijunior88-consultaquadrinhosv2/deploys)
+<p>
+  <img  src="https://api.netlify.com/api/v1/badges/7c63b5b9-9e92-4e8d-b18f-9af716b4805a/deploy-status" />
+</p>
 
 <hr>
 
